@@ -9,7 +9,7 @@ const ViewAllOffers = () => {
 
     const fetchData = () => {
 
-        axios.get("http://localhost:3000/view-offer").then(
+        axios.post("http://localhost:3000/view-offer").then(
 
             (response) => {
 
@@ -83,18 +83,18 @@ const ViewAllOffers = () => {
 
                                                     <tr key={index}>
 
-                                                        <td>{value.offer_id}</td>
-                                                        <td>{value.offer_code}</td>
-                                                        <td>{value.offer_name}</td>
-                                                        <td>{value.offer_description}</td>
-                                                        <td>{value.discount_percentage}</td>
-                                                        <td>{value.maximum_discount_amount}</td>
-                                                        <td>{value.minimum_parking_fee_required}</td>
-                                                        <td>{value.valid_from}</td>
-                                                        <td>{value.valid_until}</td>
-                                                        <td>{value.applicable_vehicle_type}</td>
-                                                        <td>{value.offer_status}</td>
-                                                        <td>{value.terms_and_conditions}</td>
+                                                        <td>{value.offerId}</td>
+                                                        <td>{value.offerCode}</td>
+                                                        <td>{value.offerName}</td>
+                                                        <td>{value.offerDescription}</td>
+                                                        <td>{value.discountPercentage}</td>
+                                                        <td>{value.maximumDiscountAmount}</td>
+                                                        <td>{value.minimumParkingFeeRequired}</td>
+                                                        <td>{value.validFrom}</td>
+                                                        <td>{value.validUntil}</td>
+                                                        <td>{value.applicableVehicleType}</td>
+                                                        <td>{value.offerStatus}</td>
+                                                        <td>{value.termsAndConditions}</td>
 
                                                     </tr>
 
