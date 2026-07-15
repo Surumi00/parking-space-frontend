@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import NavigationBar from './NavigationBar'
 
 const AddVehicle = () => {
 
@@ -43,6 +44,7 @@ const AddVehicle = () => {
 
     return (
         <div>
+            <NavigationBar />
 
             <div className="container mt-4">
                 <h2 className="text-center mb-4">Vehicle Registration</h2>
