@@ -9,7 +9,7 @@ const ViewAllParking = () => {
 
     const fetchData = () => {
 
-        axios.get("http://localhost:3000/view-all").then(
+        axios.post("http://localhost:3000/view-all").then(
 
             (response) => {
 
@@ -81,17 +81,17 @@ const ViewAllParking = () => {
 
                                                 <tr key={index}>
 
-                                                    <td>{value.parking_id}</td>
-                                                    <td>{value.slot_number}</td>
-                                                    <td>{value.parking_zone_level}</td>
-                                                    <td>{value.floor_number}</td>
-                                                    <td>{value.vehicle_type_supported}</td>
-                                                    <td>{value.hourly_parking_fee}</td>
-                                                    <td>{value.availability_status}</td>
-                                                    <td>{value.maximum_parking_duration}</td>
-                                                    <td>{value.parking_area_name}</td>
-                                                    <td>{value.cctv_available}</td>
-                                                    <td>{value.reserved_slot}</td>
+                                                    <td>{value.parkingId}</td>
+                                                    <td>{value.slotNumber}</td>
+                                                    <td>{value.parkingZone}</td>
+                                                    <td>{value.floorNumber}</td>
+                                                    <td>{value.vehicleTypeSupported}</td>
+                                                    <td>{value.hourlyParkingFee}</td>
+                                                    <td>{value.availabilityStatus}</td>
+                                                    <td>{value.maximumParkingDuration}</td>
+                                                    <td>{value.parkingAreaName}</td>
+                                                    <td>{String(value.cctvAvailable)}</td>
+                                                    <td>{String(value.reservedSlot)}</td>
                                                     <td>{value.remarks}</td>
 
                                                 </tr>
