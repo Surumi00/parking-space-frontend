@@ -7,13 +7,32 @@ const ViewAllOffers = () => {
 
     const [data, changeData] = useState([])
 
+    const normalizeOffer = (value) => ({
+        offerId: value?.offerId ?? value?.offer_id ?? '',
+        offerCode: value?.offerCode ?? value?.offer_code ?? '',
+        offerName: value?.offerName ?? value?.offer_name ?? '',
+        offerDescription: value?.offerDescription ?? value?.offer_description ?? '',
+        discountPercentage: value?.discountPercentage ?? value?.discount_percentage ?? '',
+        maximumDiscountAmount: value?.maximumDiscountAmount ?? value?.maximum_discount_amount ?? '',
+        minimumParkingFeeRequired: value?.minimumParkingFeeRequired ?? value?.minimum_parking_fee_required ?? '',
+        validFrom: value?.validFrom ?? value?.valid_from ?? '',
+        validUntil: value?.validUntil ?? value?.valid_until ?? '',
+        applicableVehicleType: value?.applicableVehicleType ?? value?.applicable_vehicle_type ?? '',
+        offerStatus: value?.offerStatus ?? value?.offer_status ?? '',
+        termsAndConditions: value?.termsAndConditions ?? value?.terms_and_conditions ?? ''
+    })
+
     const fetchData = () => {
 
         axios.post("http://localhost:3000/view-offer").then(
 
             (response) => {
 
-                changeData(response.data)
+                const payload = Array.isArray(response.data)
+                    ? response.data
+                    : response.data?.offers ?? [response.data]
+
+                changeData(payload.map(normalizeOffer))
 
             }
 
