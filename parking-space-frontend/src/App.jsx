@@ -3,14 +3,14 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
-import ViewAllParking from './components/viewParking'
+import Homepage from './components/Homepage'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
-      <ViewAllParking />
+      <Homepage/>
     </>
   )
 }
