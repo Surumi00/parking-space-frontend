@@ -1,84 +1,93 @@
 import React from 'react'
 import NavigationBar from './NavigationBar'
 
-const HomePage = () => {
+const Homepage = () => {
     return (
         <div>
             <NavigationBar />
             <div
-                className="container-fluid text-white"
                 style={{
                     minHeight: "100vh",
-                    background: "linear-gradient(135deg, #11998e, #38ef7d)",
+                    background: "linear-gradient(135deg, #0f172a, #1e3a8a, #2563eb)",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    fontFamily: "Arial, sans-serif",
+                    color: "white",
+                    padding: "20px"
                 }}
             >
+                <div
+                    style={{
+                        textAlign: "center",
+                        background: "rgba(255,255,255,0.12)",
+                        backdropFilter: "blur(10px)",
+                        padding: "50px",
+                        borderRadius: "20px",
+                        boxShadow: "0 8px 25px rgba(0,0,0,0.4)",
+                        width: "80%",
+                        maxWidth: "800px"
+                    }}
+                >
+                    <h1
+                        style={{
+                            fontSize: "48px",
+                            marginBottom: "20px",
+                            color: "#FFD700"
+                        }}
+                    >
+                        🚗 Smart Parking Management System
+                    </h1>
 
-                <div className="container py-5">
-                    <div className="row align-items-center">
+                    <p
+                        style={{
+                            fontSize: "20px",
+                            lineHeight: "1.8",
+                            marginBottom: "30px",
+                            color: "#f1f5f9"
+                        }}
+                    >
+                        Welcome to the Smart Parking Management System.
+                        Manage parking slots, vehicles, bookings, payments,
+                        and offers efficiently with a modern and user-friendly interface.
+                    </p>
 
-                        {/* Left Side */}
-                        <div className="col-lg-6">
-                            <h1 className="display-3 fw-bold">
-                                Supermarket Management System
-                            </h1>
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            gap: "20px",
+                            flexWrap: "wrap"
+                        }}
+                    >
+                       
 
-                            <p className="lead mt-4">
-                                Manage your supermarket efficiently with inventory tracking,
-                                billing, customer management, employee records, and sales reports
-                                in one place.
-                            </p>
-
-
-
-
-                        </div>
-
-                        {/* Right Side */}
-                        <div className="col-lg-6 text-center">
-                            <img
-                                src="https://cdn-icons-png.flaticon.com/512/3082/3082037.png"
-                                alt="Supermarket"
-                                className="img-fluid"
-                                style={{ maxHeight: "400px" }}
-                            />
-                        </div>
+                        
                     </div>
 
-                    {/* Feature Cards */}
-                    <div className="row mt-5 g-4">
-
-                        <div className="col-md-3">
-                            <div className="card shadow-lg border-0 text-center p-4 h-100">
-                                <h1>📦</h1>
-                                <h4>Inventory</h4>
-                                <p>Track stock levels and product availability.</p>
-                            </div>
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "space-around",
+                            marginTop: "50px",
+                            flexWrap: "wrap",
+                            gap: "20px"
+                        }}
+                    >
+                        <div>
+                            <h2 style={{ color: "#38bdf8" }}>500+</h2>
+                            <p>Parking Slots</p>
                         </div>
 
-                        <div className="col-md-3">
-                            <div className="card shadow-lg border-0 text-center p-4 h-100">
-                                <h1>💳</h1>
-                                <h4>Billing</h4>
-                                <p>Fast and secure billing with invoice generation.</p>
-                            </div>
+                        <div>
+                            <h2 style={{ color: "#4ade80" }}>1000+</h2>
+                            <p>Registered Users</p>
                         </div>
 
-                        <div className="col-md-3">
-                            <div className="card shadow-lg border-0 text-center p-4 h-100">
-                                <h1>👥</h1>
-                                <h4>Customers</h4>
-                                <p>Maintain customer details and purchase history.</p>
-                            </div>
+                        <div>
+                            <h2 style={{ color: "#facc15" }}>24/7</h2>
+                            <p>Availability</p>
                         </div>
-
-                        <div className="col-md-3">
-                            <div className="card shadow-lg border-0 text-center p-4 h-100">
-                                <h1>📈</h1>
-                                <h4>OFFERS</h4>
-                                <p>View all offers.</p>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -86,4 +95,6 @@ const HomePage = () => {
     )
 }
 
-export default HomePage
+export default Homepage
+
+
