@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import NavigationBar from './NavigationBar';
+import Search from './Search';
 
 const ViewVehicle = () => {
 
     const [vehicleData, changeDate] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [activeSearchTerm, setActiveSearchTerm] = useState('');
 
     const fetchData = () => {
         axios.post("http://localhost:3000/view-vehicles", vehicleData).then(
@@ -22,12 +25,46 @@ const ViewVehicle = () => {
             fetchData();
         }, []
     )
+    const handleSearch = () => {
+        setActiveSearchTerm(searchTerm.trim().toLowerCase());
+    };
+
+    const filteredVehicles = vehicleData.filter((value) => {
+        const term = activeSearchTerm;
+        if (!term) {
+            return true;
+        }
+
+        return (
+            value.vehicleId?.toString().toLowerCase().includes(term) ||
+            value.ownerName?.toLowerCase().includes(term) ||
+            value.vehicleNumber?.toLowerCase().includes(term) ||
+            value.vehicleModel?.toLowerCase().includes(term) ||
+            value.vehicleBrand?.toLowerCase().includes(term) ||
+            value.vehicleType?.toLowerCase().includes(term) ||
+            value.vehicleColor?.toLowerCase().includes(term) ||
+            value.registrationDate?.toLowerCase().includes(term) ||
+            value.ownerContactNumber?.toLowerCase().includes(term) ||
+            value.ownerEmail?.toLowerCase().includes(term) ||
+            value.parkingPassType?.toLowerCase().includes(term) ||
+            value.address?.toLowerCase().includes(term)
+        );
+    });
+
     return (
         <div>
             <NavigationBar />
             <div className="container-fluid mt-5 px-4">
                 <div className="card shadow-sm border-0 rounded-3 overflow-hidden">
                     <div className="card-body p-0">
+                        <div className="p-3 border-bottom">
+                            <Search
+                                searchTerm={searchTerm}
+                                onSearchChange={setSearchTerm}
+                                onSearch={handleSearch}
+                                placeholder="Search by owner, vehicle number, model, or email"
+                            />
+                        </div>
                         <table className="table table-hover align-middle text-center mb-0 w-100">
                             <thead className="table-primary">
                                 <tr>
@@ -47,7 +84,7 @@ const ViewVehicle = () => {
                             </thead>
 
                             <tbody>
-                                {vehicleData.map((value, index) => (
+                                {filteredVehicles.map((value, index) => (
                                     <tr key={index}>
                                         <td className="fw-semibold">{value.vehicleId}</td>
                                         <td>{value.ownerName}</td>
