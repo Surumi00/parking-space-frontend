@@ -1,23 +1,26 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 import NavigationBar from './NavigationBar'
 
 const AddOffers = () => {
 
+    const navigate = useNavigate()
+
     const [input, changeInput] = useState({
 
-        offer_id: "",
-        offer_code: "",
-        offer_name: "",
-        offer_description: "",
-        discount_percentage: "",
-        maximum_discount_amount: "",
-        minimum_parking_fee_required: "",
-        valid_from: "",
-        valid_until: "",
-        applicable_vehicle_type: "",
-        offer_status: "",
-        terms_and_conditions: ""
+        offerId: "",
+        offerCode: "",
+        offerName: "",
+        offerDescription: "",
+        discountPercentage: "",
+        maximumDiscountAmount: "",
+        minimumParkingFeeRequired: "",
+        validFrom: "",
+        validUntil: "",
+        applicableVehicleType: "",
+        offerStatus: "",
+        termsAndConditions: ""
 
     })
 
@@ -32,14 +35,29 @@ const AddOffers = () => {
 
     const readValue = () => {
 
-        console.log(input)
+        const payload = {
+            ...input,
+            offer_id: input.offerId,
+            offer_code: input.offerCode,
+            offer_name: input.offerName,
+            offer_description: input.offerDescription,
+            discount_percentage: input.discountPercentage,
+            maximum_discount_amount: input.maximumDiscountAmount,
+            minimum_parking_fee_required: input.minimumParkingFeeRequired,
+            valid_from: input.validFrom,
+            valid_until: input.validUntil,
+            applicable_vehicle_type: input.applicableVehicleType,
+            offer_status: input.offerStatus,
+            terms_and_conditions: input.termsAndConditions
+        }
 
-        axios.post("http://localhost:3000/add-offer", input).then(
+        axios.post("http://localhost:3000/add-offer", payload).then(
 
             (response) => {
 
                 console.log(response.data)
                 alert("Offer Added Successfully")
+                navigate('/view-offer')
 
             }
 
@@ -72,8 +90,8 @@ const AddOffers = () => {
                             <div className="col-md-6">
                                 <label className="form-label">Offer ID</label>
                                 <input type="text" className="form-control"
-                                    name="offer_id"
-                                    value={input.offer_id}
+                                    name="offerId"
+                                    value={input.offerId}
                                     onChange={inputHandler}
                                 />
                             </div>
@@ -81,8 +99,8 @@ const AddOffers = () => {
                             <div className="col-md-6">
                                 <label className="form-label">Offer Code</label>
                                 <input type="text" className="form-control"
-                                    name="offer_code"
-                                    value={input.offer_code}
+                                    name="offerCode"
+                                    value={input.offerCode}
                                     onChange={inputHandler}
                                 />
                             </div>
@@ -90,8 +108,8 @@ const AddOffers = () => {
                             <div className="col-md-6">
                                 <label className="form-label">Offer Name</label>
                                 <input type="text" className="form-control"
-                                    name="offer_name"
-                                    value={input.offer_name}
+                                    name="offerName"
+                                    value={input.offerName}
                                     onChange={inputHandler}
                                 />
                             </div>
@@ -100,8 +118,8 @@ const AddOffers = () => {
                                 <label className="form-label">Offer Description</label>
                                 <textarea
                                     className="form-control"
-                                    name="offer_description"
-                                    value={input.offer_description}
+                                    name="offerDescription"
+                                    value={input.offerDescription}
                                     onChange={inputHandler}
                                 ></textarea>
                             </div>
@@ -110,8 +128,8 @@ const AddOffers = () => {
                                 <label className="form-label">Discount Percentage</label>
                                 <input type="number"
                                     className="form-control"
-                                    name="discount_percentage"
-                                    value={input.discount_percentage}
+                                    name="discountPercentage"
+                                    value={input.discountPercentage}
                                     onChange={inputHandler}
                                 />
                             </div>
@@ -120,8 +138,8 @@ const AddOffers = () => {
                                 <label className="form-label">Maximum Discount Amount</label>
                                 <input type="number"
                                     className="form-control"
-                                    name="maximum_discount_amount"
-                                    value={input.maximum_discount_amount}
+                                    name="maximumDiscountAmount"
+                                    value={input.maximumDiscountAmount}
                                     onChange={inputHandler}
                                 />
                             </div>
@@ -130,8 +148,8 @@ const AddOffers = () => {
                                 <label className="form-label">Minimum Parking Fee Required</label>
                                 <input type="number"
                                     className="form-control"
-                                    name="minimum_parking_fee_required"
-                                    value={input.minimum_parking_fee_required}
+                                    name="minimumParkingFeeRequired"
+                                    value={input.minimumParkingFeeRequired}
                                     onChange={inputHandler}
                                 />
                             </div>
@@ -140,8 +158,8 @@ const AddOffers = () => {
                                 <label className="form-label">Valid From</label>
                                 <input type="date"
                                     className="form-control"
-                                    name="valid_from"
-                                    value={input.valid_from}
+                                    name="validFrom"
+                                    value={input.validFrom}
                                     onChange={inputHandler}
                                 />
                             </div>
@@ -150,8 +168,8 @@ const AddOffers = () => {
                                 <label className="form-label">Valid Until</label>
                                 <input type="date"
                                     className="form-control"
-                                    name="valid_until"
-                                    value={input.valid_until}
+                                    name="validUntil"
+                                    value={input.validUntil}
                                     onChange={inputHandler}
                                 />
                             </div>
@@ -161,8 +179,8 @@ const AddOffers = () => {
 
                                 <select
                                     className="form-select"
-                                    name="applicable_vehicle_type"
-                                    value={input.applicable_vehicle_type}
+                                    name="applicableVehicleType"
+                                    value={input.applicableVehicleType}
                                     onChange={inputHandler}
                                 >
 
@@ -181,8 +199,8 @@ const AddOffers = () => {
 
                                 <select
                                     className="form-select"
-                                    name="offer_status"
-                                    value={input.offer_status}
+                                    name="offerStatus"
+                                    value={input.offerStatus}
                                     onChange={inputHandler}
                                 >
 
@@ -199,8 +217,8 @@ const AddOffers = () => {
 
                                 <textarea
                                     className="form-control"
-                                    name="terms_and_conditions"
-                                    value={input.terms_and_conditions}
+                                    name="termsAndConditions"
+                                    value={input.termsAndConditions}
                                     onChange={inputHandler}
                                 ></textarea>
 
