@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import NavigationBar from './NavigationBar'
 import axios from 'axios'
 
-const InsertOffer = () => {
+const AddOffers = () => {
 
     const [input, changeInput] = useState({
 
@@ -34,7 +33,7 @@ const InsertOffer = () => {
 
         console.log(input)
 
-        axios.post("YOUR_API_URL", input).then(
+        axios.post("http://localhost:3000/add-offer", input).then(
 
             (response) => {
 
@@ -60,7 +59,6 @@ const InsertOffer = () => {
 
         <div>
 
-            <NavigationBar />
 
             <div className="container">
 
@@ -231,4 +229,4 @@ const InsertOffer = () => {
     )
 }
 
-export default InsertOffer
+export default AddOffers
