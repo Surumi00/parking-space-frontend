@@ -3,14 +3,14 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
-import AddOffers from './components/addOffers'
+import AddParking from './components/addParking'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <AddOffers />
+      <AddParking />
     </>
   )
 }
