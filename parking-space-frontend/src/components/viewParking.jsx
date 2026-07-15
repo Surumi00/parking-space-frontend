@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import NavigationBar from './NavigationBar'
 
 
 const ViewAllParking = () => {
@@ -39,7 +40,7 @@ const ViewAllParking = () => {
         <div>
 
 
-
+            <NavigationBar />
             <div className="container mt-5">
 
                 <div className="row">

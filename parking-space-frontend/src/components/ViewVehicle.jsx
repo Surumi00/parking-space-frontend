@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import NavigationBar from './NavigationBar';
 
 const ViewVehicle = () => {
 
@@ -23,7 +24,7 @@ const ViewVehicle = () => {
     )
     return (
         <div>
-
+            <NavigationBar />
             <div className="container-fluid mt-5 px-4">
                 <div className="card shadow-sm border-0 rounded-3 overflow-hidden">
                     <div className="card-body p-0">

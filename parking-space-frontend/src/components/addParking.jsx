@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import NavigationBar from './NavigationBar'
 
 const AddParking = () => {
 
@@ -59,7 +60,7 @@ const AddParking = () => {
 
         <div>
 
-
+            <NavigationBar />
 
             <div className="container">
 

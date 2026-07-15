@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import NavigationBar from './NavigationBar'
 
 
 const ViewAllOffers = () => {
@@ -38,7 +39,7 @@ const ViewAllOffers = () => {
 
         <div>
 
-            
+            <NavigationBar />
 
             <div className="container mt-5">
 
