@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import NavigationBar from './NavigationBar'
 import axios from 'axios'
 
-const InsertParkingSpace = () => {
+const AddParking = () => {
 
     const [input, changeInput] = useState({
 
@@ -60,7 +59,7 @@ const InsertParkingSpace = () => {
 
         <div>
 
-            <NavigationBar />
+
 
             <div className="container">
 
@@ -247,4 +246,4 @@ const InsertParkingSpace = () => {
     )
 }
 
-export default InsertParkingSpace
+export default AddParking
